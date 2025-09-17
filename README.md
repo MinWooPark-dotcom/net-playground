@@ -1,37 +1,27 @@
 # net-playground
+> 네트워크 패킷 분석, 라우팅 테이블 변경 등 다양한 네트워크 개념 학습과 기록입니다.  
+> 아래 "환경 설정 & 실습 시작하기"를 통해 누구나 직접 실행해 볼 수 있습니다.
 
 ## 개발 환경
-💡 macOS 또는 Windows 사용자는 Docker 컨테이너 내부에서 실습을 진행하는 것을 권장합니다.  
+-   **Linux (Ubuntu 20.04 이상)**
+-   **bash 셸**
+**💡 참고:** 이 프로젝트는 **리눅스 환경**에 최적화되어 있습니다. 다른 운영체제에서는 정상적으로 작동하지 않을 수 있습니다.
 
-- Linux (Ubuntu 20.04 이상)
-- Docker Desktop (macOS/Windows에서 테스트 시)
-- bash 셸
+## 디렉토리 구조
+-   `/scripts`: 실습 환경 자동화를 위한 스크립트
+-   `/docs`: 각 실습에 대한 상세한 해설과 결과 예시
+-   `/output`: 실습을 통해 생성되는 로그 파일 및 결과물 보관용
 
-도커 볼륨 마운트 예시:
+## 환경 설정
+이 프로젝트를 시작하기 전에 실습 환경을 먼저 구성해야 합니다. 다음 명령어를 실행하여 필요한 패키지를 자동으로 설치합니다.
+
 ```bash
-docker run -it --rm \
---cap-add=NET_ADMIN \
--v "$(pwd)":/workspace \
-ubuntu bash
+chmod +x ./scripts/set-up-linux.sh
+sudo ./scripts/set-up-linux.sh
 ```
 
-실행 후, 컨테이너 내부에서 다음 명령어로 환경을 구성합니다:
-```bash
-bash /workspace/scripts/set-up-linux.sh
-```
+## 실습 시작하기
+1. /docs 디렉토리로 이동하여 원하는 실습 문서를 확인합니다.
+각 문서에는 실습에 대한 상세한 해설과 함께 실행해야 할 스크립트 경로가 포함되어 있습니다.
+2. 문서에 명시된 스크립트를 실행합니다. 스크립트는 /scripts 디렉토리에 위치하며 필요에 따라 sudo 권한이 필요할 수 있습니다.
 
-💡 참고: 일부 Docker 환경에서는 기본 DNS 서버(`192.168.x.x`)가 DNS trace를 제대로 처리하지 못할 수 있습니다.  
-NetPlayground는 이러한 상황을 고려해 Google DNS(8.8.8.8)를 기본으로 사용합니다.
-
-## 디렉토리 구조 설명
-- /scripts: 실습 자동화 스크립트
-- /docs: 실습에 대한 해설과 결과 예시
-- /output: 사용자가 생성하게 될 로그 파일이나 추적 결과 보관용
-
-
-## 브랜치 전략
-
-- `main`: 릴리스용 안정 버전, changelog 및 배포 기준
-- `dev`: 개발 통합 브랜치
-- `feature/*`: 기능 단위 개발 브랜치
-- Conventional Commits 방식 사용
