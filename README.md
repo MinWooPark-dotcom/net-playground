@@ -16,12 +16,11 @@
 이 프로젝트를 시작하기 전에 실습 환경을 먼저 구성해야 합니다. 다음 명령어를 실행하여 필요한 패키지를 자동으로 설치합니다.
 
 ```bash
-chmod +x ./scripts/set-up-linux.sh
-sudo ./scripts/set-up-linux.sh
+chmod +x ./scripts/setup.sh
+sudo ./scripts/setup.sh
 ```
 
 ## 실습 시작하기
 1. /docs 디렉토리로 이동하여 원하는 실습 문서를 확인합니다.
 각 문서에는 실습에 대한 상세한 해설과 함께 실행해야 할 스크립트 경로가 포함되어 있습니다.
 2. 문서에 명시된 스크립트를 실행합니다. 스크립트는 /scripts 디렉토리에 위치하며 필요에 따라 sudo 권한이 필요할 수 있습니다.
-
