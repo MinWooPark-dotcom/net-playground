@@ -10,8 +10,8 @@ mkdir -p "$OUTPUT_DIR"
 
 OUTPUT="$OUTPUT_DIR/dns-trace-$(date +%Y%m%d%H%M%S).log"
 
-echo "🧪 DNS trace 실습 시작: $DOMAIN"
-echo "출력 결과는 $(basename "$OUTPUT") 에 저장됩니다."
+echo "🛠️ DNS trace 실습 시작: $DOMAIN"
+echo "💾 출력 결과는 $(basename "$OUTPUT") 에 저장됩니다."
 echo
 
 # 실행 및 결과 코드 저장
@@ -25,5 +25,5 @@ if [ "$EXIT_CODE" -eq 0 ]; then
   echo "✅ 실습 완료: $DOMAIN 의 DNS 질의 흐름이 성공적으로 추적되었습니다."
 else
   echo "❌ 실습 실패: $DOMAIN 의 DNS 질의 중 오류가 발생했습니다."
-  echo "↳ 출력 로그: $OUTPUT"
+  echo "📄 출력 로그: $OUTPUT"
 fi
